@@ -7,8 +7,8 @@ public class MoodAnalyzer {
 			System.out.println( "SAD");
 		else if(msg.contains("HAPPY"))
 			System.out.println( "HAPPY");}
-		catch(Exception NullValueException) {
-			System.out.println( "HAPPY");
+		catch(Exception MoodAnalysisException) {
+			System.out.println( "dear user u have entered invalid mood");
 		}
 		
 	}
@@ -26,8 +26,8 @@ public class MoodAnalyzer {
 		else if(msg.contains("HAPPY"))
 			return( "HAPPY");
 		}
-		catch(Exception NullValueException) {
-			return "HAPPY";
+		catch(Exception MoodAnalysisException) {
+			return "dear user u have entered invalid mood";
 		}
 		return null;
 	}
