@@ -3,10 +3,13 @@ package MyPackage;
 public class MoodAnalyzer {
 	
 	MoodAnalyzer(String msg){ //parameterized constructor
-		if(msg.contains("SAD"))
+		try{if(msg.contains("SAD"))
 			System.out.println( "SAD");
 		else if(msg.contains("HAPPY"))
+			System.out.println( "HAPPY");}
+		catch(Exception NullValueException) {
 			System.out.println( "HAPPY");
+		}
 		
 	}
 	
@@ -17,18 +20,21 @@ public class MoodAnalyzer {
 
 
 	public String analyzeMood(String msg) {
-		if(msg.contains("SAD"))
+		try{if(msg.contains("SAD"))
 			return "SAD";
 		
 		else if(msg.contains("HAPPY"))
 			return( "HAPPY");
-		else 
-			return null;
+		}
+		catch(Exception NullValueException) {
+			return "HAPPY";
+		}
+		return null;
 	}
 	public static void main(String args[]) {
 		MoodAnalyzer m1=new MoodAnalyzer();
 		MoodAnalyzer m2=new MoodAnalyzer("be HAPPY ,don't worry");//calling parameterized construnctor
-		System.out.println(m1.analyzeMood("why u are SAD always..."));
+		System.out.println(m1.analyzeMood(null));//passing null value to test exception handling
 		
 	}
 
