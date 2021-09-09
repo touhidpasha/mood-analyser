@@ -9,7 +9,12 @@ public class MoodAnalyzerTest {
 	@Test
 	public void test() {
 		MoodAnalyzer m=new MoodAnalyzer();
-		assertEquals(m.analyzeMood("now your HAPPY..."),"HAPPY");//jnit test case
+		try {
+			assertEquals(m.analyzeMood(null),"HAPPY");
+		} catch (MoodAnalysisException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}//jnit test case
 	}
 
 }

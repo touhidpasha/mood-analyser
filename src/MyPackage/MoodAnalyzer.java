@@ -1,8 +1,16 @@
 package MyPackage;
 
+ class MoodAnalysisException extends Exception{
+	public MoodAnalysisException(String msg){
+		super(msg);
+	}
+}
+
+ 
+ 
 public class MoodAnalyzer {
 	
-	MoodAnalyzer(String msg){ //parameterized constructor
+	/*MoodAnalyzer(String msg){ //parameterized constructor
 		try{if(msg.contains("SAD"))
 			System.out.println( "SAD");
 		else if(msg.contains("HAPPY"))
@@ -18,23 +26,43 @@ public class MoodAnalyzer {
 		// TODO Auto-generated constructor stub
 	}
 
-
-	public String analyzeMood(String msg) {
+*/
+	
+	  
+	  
+	    // method to check the age  
+	   /* static void validate (String msg) throws MoodAnalysisException{    
+	       if(msg==null){  
+	  
+	        // throw an object of user defined exception  
+	        throw new MoodAnalysisException("HAPPY");    
+	       }  
+	        
+	     }    
+	*/
+	
+	public String analyzeMood(String msg) throws MoodAnalysisException{
 		try{if(msg.contains("SAD"))
 			return "SAD";
-		
+
 		else if(msg.contains("HAPPY"))
 			return( "HAPPY");
+		else if(msg.equals(""))
+				throw new MoodAnalysisException("you have entered empty input");
 		}
-		catch(Exception MoodAnalysisException) {
-			return "dear user u have entered invalid mood";
+		catch(NullPointerException ex)
+		{
+			throw new MoodAnalysisException("you have entered null value");	
 		}
 		return null;
 	}
-	public static void main(String args[]) {
+	
+	public static void main(String args[]) throws MoodAnalysisException {
 		MoodAnalyzer m1=new MoodAnalyzer();
-		MoodAnalyzer m2=new MoodAnalyzer("be HAPPY ,don't worry");//calling parameterized construnctor
-		System.out.println(m1.analyzeMood(null));//passing null value to test exception handling
+		//MoodAnalyzer m2=new MoodAnalyzer("be HAPPY ,don't worry");//calling parameterized construnctor
+		
+		System.out.println(m1.analyzeMood(null));
+		
 		
 	}
 
